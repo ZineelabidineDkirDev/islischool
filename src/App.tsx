@@ -67,10 +67,12 @@ const resetStoredSchoolData = () => {
   localStorage.removeItem('isli_school_data');
   localStorage.setItem('isli_school_data', JSON.stringify(defaultSchoolData));
 };
+  const logoImage = new URL('../assets/isli_logo.png', import.meta.url).href;
 
 const SchoolLogo = () => (
+  
   <div className="relative flex items-center justify-center shrink-0">
-    <img src="../assets/isli_logo.png" width={60}  />
+    <img src={logoImage} width={60}  />
   </div>
 );
 
@@ -361,6 +363,7 @@ export default function App() {
   const visibleCourses = filteredCourses.slice(courseCarouselIndex, courseCarouselIndex + 4);
   const canGoPrev = courseCarouselIndex > 0;
   const canGoNext = courseCarouselIndex + 4 < filteredCourses.length;
+
 
   return (
     <div className="min-h-screen bg-[#F4F8FC] text-[#0C2E5C] font-sans antialiased">
