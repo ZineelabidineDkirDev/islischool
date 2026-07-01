@@ -70,23 +70,7 @@ const resetStoredSchoolData = () => {
 
 const SchoolLogo = () => (
   <div className="relative flex items-center justify-center shrink-0">
-    <svg className="w-12 h-12 md:w-14 md:h-14 drop-shadow-sm" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer Circle Ring */}
-      <circle cx="50" cy="50" r="46" fill="#1054A6" />
-      <circle cx="50" cy="50" r="41" stroke="#FFDE00" strokeWidth="2" />
-      <circle cx="50" cy="50" r="38" stroke="white" strokeWidth="1" strokeDasharray="2 2" />
-      
-      {/* Graduation Cap / Lamp of Knowledge */}
-      <path d="M50 28L70 37L50 46L30 37L50 28Z" fill="#E52320" stroke="white" strokeWidth="1" />
-      <path d="M40 42.5V52C40 55.5 44.5 58 50 58C55.5 58 60 55.5 60 52V42.5" fill="none" stroke="white" strokeWidth="1.5" />
-      <path d="M64 40V55" stroke="#FFDE00" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="64" cy="56" r="2.5" fill="#FFDE00" />
-      
-      {/* Three success stars */}
-      <polygon points="50,65 52,69 57,69 53,72 55,76 50,73 45,76 47,72 43,69 48,69" fill="#FFDE00" />
-      <polygon points="35,60 37,63 41,63 38,65 39,69 35,67 31,69 32,65 29,63 33,63" fill="#FFDE00" />
-      <polygon points="65,60 67,63 71,63 68,65 69,69 65,67 61,69 62,65 59,63 63,63" fill="#FFDE00" />
-    </svg>
+    <img src="../assets/isli_logo.png" width={60}  />
   </div>
 );
 
@@ -387,7 +371,7 @@ export default function App() {
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="font-medium tracking-wide">HÉBERGEMENT ACTIF :</span>
           <span className="bg-[#E52320] text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded">
-            isli-school.aistudio.run
+            isli-school.aistudio.edu.ma
           </span>
         </div>
         <div className="flex items-center gap-4">
@@ -920,7 +904,7 @@ export default function App() {
                 <h1 className="font-extrabold text-[#0C2E5C] tracking-tight text-xl leading-none group-hover:text-[#E52320] transition-colors duration-300">
                   {schoolData.name}
                 </h1>
-                <span className="text-[10px] uppercase tracking-wider text-[#FFCC00] bg-[#0C2E5C] px-1.5 py-0.5 rounded font-bold">École de Langues & Progrès</span>
+                <span className="text-[10px] uppercase tracking-wider text-[#FFCC00] bg-[#0C2E5C] px-1.5 py-0.5 rounded font-bold">École de Langues & Soutien</span>
               </div>
             </a>
 

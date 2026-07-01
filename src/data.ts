@@ -11,7 +11,7 @@ const newsImageTwo = new URL('../assets/isli_act2.jpg', import.meta.url).href;
 const newsImageThree = new URL('../assets/isli_act3.jpg', import.meta.url).href;
 
 export const defaultSchoolData: SchoolData = {
-  name: "École Isli",
+  name: "Isli School",
   slogan: "Un excellent endroit pour votre éducation",
   description: "Notre école de langues et de formation est reconnue pour ses programmes d'études de haute qualité dans le monde entier. Nous travaillons avec les meilleurs enseignants pour garantir votre réussite académique et professionnelle.",
   aboutTitle: "Commençons votre éducation !",
