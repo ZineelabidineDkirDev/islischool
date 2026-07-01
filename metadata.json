@@ -1,0 +1,6 @@
+{
+  "name": "École Isli",
+  "description": "Plateforme web officielle de l'École Isli, école de langues et de soutien scolaire avec gestion de contenu assistée par l'IA Gemini, tableau de bord administratif complet et formulaire de contact direct.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
