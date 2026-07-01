@@ -144,6 +144,15 @@ export default function App() {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSuccess, setNewsletterSuccess] = useState(false);
 
+  const navLinks = [
+    { href: '#about', label: 'Accueil' },
+    { href: '#features', label: 'Avantages' },
+    { href: '#courses', label: 'Nos Cours' },
+    { href: '#testimonials', label: 'Témoignages' },
+    { href: '#pricing', label: 'Tarifs' },
+    { href: '#news', label: 'Actualités' },
+  ];
+
   // Admin Editors States
   const [activeAdminTab, setActiveAdminTab] = useState<'info' | 'courses' | 'registrations' | 'newsletters'>('info');
   const [editingCourse, setEditingCourse] = useState<Course | null>(null);
@@ -901,7 +910,7 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-6 min-h-20 flex flex-wrap items-center justify-between gap-3 py-3">
             
             {/* School Logo */}
-            <a href="#about" className="flex items-center gap-3 group">
+            <a href="#about" className="flex items-center gap-3 group shrink-0">
               <SchoolLogo />
               <div>
                 <h1 className="font-extrabold text-[#0C2E5C] tracking-tight text-xl leading-none group-hover:text-[#E52320] transition-colors duration-300">
@@ -914,24 +923,23 @@ export default function App() {
             <button
               type="button"
               aria-label="Ouvrir le menu"
+              aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="md:hidden inline-flex items-center justify-center rounded-full border border-sky-200 bg-[#F4F8FC] p-2 text-[#0C2E5C] shadow-sm"
+              className="md:hidden inline-flex items-center justify-center rounded-full border border-sky-200 bg-[#F4F8FC] p-2 text-[#0C2E5C] shadow-sm transition-colors hover:border-[#E52320] hover:text-[#E52320]"
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
 
-            {/* Nav Menu */}
-            <nav className=" md:flex flex-wrap items-center justify-end gap-4 lg:gap-8 text-sm font-bold text-[#0C2E5C]">
-              <a href="#about" className="hover:text-[#E52320] transition-colors">Accueil</a>
-              <a href="#features" className="hover:text-[#E52320] transition-colors">Avantages</a>
-              <a href="#courses" className="hover:text-[#E52320] transition-colors">Nos Cours</a>
-              <a href="#testimonials" className="hover:text-[#E52320] transition-colors font-semibold">Témoignages</a>
-              <a href="#pricing" className="hover:text-[#E52320] transition-colors">Tarifs</a>
-              <a href="#news" className="hover:text-[#E52320] transition-colors">Actualités</a>
-              
-              <a 
-                href="#contact" 
-                className="bg-[#1245ea] text-white hover:bg-[#E6B800] hover:text-black px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-xs tracking-wider uppercase font-bold"
+            <nav className="hidden md:flex flex-1 items-center justify-end gap-4 lg:gap-8 text-sm font-bold text-[#0C2E5C]">
+              {navLinks.map((link) => (
+                <a key={link.href} href={link.href} className="transition-colors hover:text-[#E52320]">
+                  {link.label}
+                </a>
+              ))}
+
+              <a
+                href="#contact"
+                className="inline-flex items-center rounded-full bg-[#1245ea] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E6B800] hover:text-black"
               >
                 Inscriptions ouvertes
               </a>
@@ -939,15 +947,23 @@ export default function App() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-sky-100 bg-white/95 px-6 py-4 shadow-sm">
+            <div className="border-t border-sky-100 bg-white/95 px-6 py-4 shadow-sm md:hidden">
               <div className="flex flex-col gap-3 text-sm font-semibold text-[#0C2E5C]">
-                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Accueil</a>
-                <a href="#features" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Avantages</a>
-                <a href="#courses" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Nos Cours</a>
-                <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Témoignages</a>
-                <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Tarifs</a>
-                <a href="#news" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#E52320] transition-colors">Actualités</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="inline-flex w-fit items-center rounded-full bg-[#E52320] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="transition-colors hover:text-[#E52320]"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex w-fit items-center rounded-full bg-[#E52320] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white"
+                >
                   Inscriptions ouvertes
                 </a>
               </div>
